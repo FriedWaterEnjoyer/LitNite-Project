@@ -39,7 +39,7 @@ da_app.get("/", async (req, res) => {
 
   // Creating a "books" table if it doesn't exist in the database. If it does, then it'll fetch the data from the aforesaid table, bypassing the table creation part.
 
-  let books_array = (await da_db.query("SELECT * FROM books ORDER BY star_rating DESC")).rows
+  let books_array = (await da_db.query("SELECT * FROM books")).rows
 
   
   res.render("index.ejs", { all_books: books_array })
