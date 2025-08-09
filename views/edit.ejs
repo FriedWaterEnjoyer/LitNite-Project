@@ -1,0 +1,76 @@
+<%- include("./partials/header.ejs") %>
+
+
+<div id="contact-form">
+  <div>
+    <h1 class="funnel-display-text">Edit a book</h1> 
+    <h4 class="funnel-display-text">Edit the <%= edit_book[0].book_name %> entry</h4> 
+  </div>
+
+    <form action="/edit" method="post">
+
+      <div>
+        
+
+          <label for="name">
+            <span class="required funnel-display-text">Book's name: *</span> 
+            <input type="text" id="name" name="book_name" value="" placeholder="Name" required="required" tabindex="1" autofocus="autofocus" />
+          </label> 
+      </div>
+
+      <div>
+          <label for="isbn">
+            <span class="required funnel-display-text">Book's ISBN-13 code (optional): </span>
+            <input type="text" id="isbn" name="isbn" value="" placeholder="0000000000000" tabindex="2" minlength="13" maxlength="13" />
+          </label>  
+      </div>
+
+      <div>
+          <label for="author">
+            <span class="required funnel-display-text">Book's author: *</span>
+            <input type="text" id="author" name="author" value="" placeholder="Lingle Mingle Jr." tabindex="3" required="required" />
+          </label>  
+      </div>
+
+      <div>             
+          <label for="subject">
+          <span class="funnel-display-text">Star Rating: </span>
+            <select id="rating" name="rating" tabindex="4">  
+
+               <option value="1"> 1.0 ⭐ </option>
+
+               <option value="1.5"> 1.5 ⭐ </option>
+
+               <option value="2"> 2.0 ⭐ </option>
+
+               <option value="2.5"> 2.5 ⭐ </option>
+
+               <option value="3"> 3.0 🌠 </option>
+
+               <option value="3.5"> 3.5 🌠 </option>
+
+               <option value="4"> 4.0 🌠 </option>
+
+               <option value="4.5"> 4.5 🌠 </option>
+
+               <option value="5"> 5.0 🌌</option>
+
+            </select>
+          </label>
+      </div>
+
+      <div>             
+          <label for="review">
+            <span class="required funnel-display-text">Review: *</span> 
+            <textarea id="review" name="review" tabindex="5" required="required"><%= edit_book[0].review %></textarea> 
+          </label>  
+      </div>
+
+      <input hidden name="id" value="<%= edit_book[0].id %>"></input> <!-- Hidden input so that /edit url can fetch the id of the updated entry. -->
+
+      <div>              
+          <button name="submit" type="submit" id="submit" class="funnel-display-text" >Edit</button> 
+      </div>
+       </form>
+
+  </div>

@@ -1,0 +1,48 @@
+<%- include("./partials/header.ejs") %>
+
+<div class="notes_div">
+
+    <% all_books.forEach(book_data => { %>
+
+    <div class="book_note">
+
+        <h3 class="funnel-display-book-text" style="height: 60px; width: 590px; padding-top: 20px; overflow: hidden;"><%= book_data.book_name %></h3>
+
+        <h4 class="funnel-display-book-text" style="padding-top: 20px; width: 310px;">By: <%= book_data.author %></h4>
+
+        <h5 class="funnel-display-book-text" style="padding-top: 10px; width: 90px;"><%= book_data.star_rating %> / 5 ⭐</h5>
+
+        <p class="funnel-display-book-text" style="width: 510px; height: 150px; padding-top: 10px; overflow: auto;"><%= book_data.review %></p>
+
+        
+        <form action="/delete" method="post">
+
+        <button class="nav-link funnel-display-text" style="float: right; margin-left: 15px;" value="<%= book_data.id %>" name="del_value">Delete</button>
+
+        <!-- In a form, the button and its value is only submitted if the button itself was used to submit the form. -->
+
+        </form>
+
+        <form action="/pre-edit" method="post">
+
+        <button class="nav-link funnel-display-text" style="float: right; margin-right: 15px;" type="submit" value="<%= book_data.id %>" name="edit_value">Edit</button>
+
+        </form>
+
+
+        <% if (book_data.img_link === "No Link") { %>
+
+            <h2 class="funnel-display-book-text" style="position: absolute; left: 550px; width: 300px; bottom: 140px;">No image found</h2>
+
+         <% } else { %>
+
+            <img src="<%= book_data.img_link %>" style="position: absolute; left: 590px; bottom: 30px; height: 270px; width: 250px;">
+
+        <% } %>
+
+
+    </div>
+        
+    <% }); %>
+
+</div>

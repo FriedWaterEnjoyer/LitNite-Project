@@ -1,0 +1,379 @@
+/* Main Page (Multiple pages also use some elements) */
+
+.funnel-display-text {
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 473;
+  font-style: normal;
+  color: #385698ea !important;
+}
+
+.funnel-display-book-text {
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 473px;
+  font-style: normal;
+  color: black !important;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+  background-attachment: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden; /* Making specifically overflow-x hidden so that the user still can scroll horizontally (since the books are aligned this way),
+  
+  but at the same time not to let the shooting star animation move the scroll vertically.
+
+  */
+  
+}
+
+.stars {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  background: white;
+  box-shadow: 2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white,
+    22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white,
+    38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white,
+    53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white,
+    68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white,
+    83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white,
+    98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white,
+    18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white,
+    35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white,
+    50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white,
+    65vw 72vh 2px white, 70vw 85vh 1px white, 75vw 78vh 2px white,
+    80vw 92vh 1px white, 85vw 82vh 2px white, 90vw 88vh 1px white,
+    95vw 75vh 2px white;
+  animation: twinkle 8s infinite linear;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  animation: shoot 3s infinite ease-in;
+}
+
+.shooting-star:nth-child(1) {
+  top: 20%;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(2) {
+  top: 35%;
+  left: -100px;
+  animation-delay: 1s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 50%;
+  left: -100px;
+  animation-delay: 2s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw) translateY(50vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+/* Additional twinkling stars with different animation timing */
+
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: white;
+  box-shadow: 8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
+    33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
+    57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
+    81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
+    3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
+    27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
+    51vw 92vh 2px white, 59vw 78vh 1px white;
+  animation: twinkle 6s infinite linear reverse;
+}
+
+/* Div animations */
+
+@keyframes slideUp {
+
+  0% {
+
+    opacity: 0;
+
+    transform: translateY(100%);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    background-color: rgb(81, 96, 153, 0.3);
+
+    transform: translateY(0);
+
+  }
+  
+}
+
+
+@keyframes slideUpForm { /* Same as the previous one, but for the form. */
+
+  0% {
+
+    opacity: 0;
+
+    transform: translateY(100%);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+  
+}
+
+.about_div {
+
+  text-align: center;
+
+  transform: translateY(100%);
+  
+}
+
+.about_div h1 {
+
+  opacity: 0;
+
+  background-color: transparent !important;
+
+  animation: slideUp 0.7s ease-out forwards !important;
+
+  animation-delay: 0.4s !important;
+
+}
+
+.about_div p {
+
+  opacity: 0;
+  
+  background-color: transparent !important;
+
+  animation: slideUp 0.7s ease-out forwards;
+
+  animation-delay: 0.9s;
+
+}
+
+.book_note {
+
+  display: block;
+
+  text-align: left;
+
+  width: 860px;
+
+  height: 330px;
+
+  padding: 10px;
+
+  margin: 50px;
+
+  opacity: 0; /* Starting opacity (before the animation). */
+
+  transform: translateY(100%); /* Starting off-screen. */
+
+  box-shadow: 4px 4px 6px 5px rgb(104, 111, 153, 0.1);
+  
+  border-radius: 20px;
+
+  animation: slideUp 0.8s ease-out forwards;
+
+  animation-delay: 0.2s;
+
+}
+
+.notes_div {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+
+  background-color: transparent !important;
+
+}
+
+.border-bottom {
+
+  opacity: 0.9;
+
+}
+
+
+/* Contact form on .add page */
+
+
+h1 {
+   margin: 10px 0 0 0;
+}
+h4{
+   margin: 0 0 20px 0;
+}
+#contact-form {
+   background-color: rgba(86, 93, 133, 0.3);
+
+   opacity: 0; /* Starting opacity (before the animation). */
+
+   bottom: 100px; /* Starting position (before the animation). Using different parameter since the position is absolute */
+
+   padding: 10px 20px 30px 20px;
+   max-width:100%;
+   float: left;
+   left: 50%;
+   position: absolute;
+   margin-top:30px;
+   margin-left: -260px;
+   border-radius:7px;
+   -webkit-border-radius:7px;
+   -moz-border-radius:7px;
+
+   animation: slideUpForm 0.8s ease-out forwards;
+
+   animation-delay: 0.2s;
+
+}
+#contact-form input,   
+#contact-form select,   
+#contact-form textarea,   
+#contact-form label { 
+   font-size: 15px;  
+   margin-bottom: 2px;
+   font-family: "Funnel Display", sans-serif;
+} 
+#contact-form input,   
+#contact-form select,   
+#contact-form textarea { 
+   width:100%;
+   background: #323C80;
+   border: 0; 
+   -moz-border-radius: 4px;  
+   -webkit-border-radius: 4px;  
+   border-radius: 14px;
+   margin-bottom: 25px;  
+   padding: 5px;  
+}  
+#contact-form input:focus,   
+#contact-form select:focus,   
+#contact-form textarea:focus {  
+   background-color: #205299; 
+}  
+#contact-form textarea {
+   width:100%;
+   height: 150px;
+}
+#contact-form button[type="submit"] {
+   cursor:pointer;
+   width:100%;
+   border:none;
+   background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+   background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+   background-image:-webkit-linear-gradient(bottom, #456A85 0%, #456A85 52%);
+   color:#FFF;
+   margin:0 0 5px;
+   padding:10px;
+   border-radius:5px;
+}
+#contact-form button[type="submit"]:hover {
+   background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+   background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+   background-image:-webkit-linear-gradient(bottom, #465E84 0%, #465E84 52%);
+   -webkit-transition:background 0.3s ease-in-out;
+   -moz-transition:background 0.3s ease-in-out;
+   transition:background-color 0.3s ease-in-out;
+}
+#contact-form button[type="submit"]:active {
+   box-shadow:inset 10px 10px 8px 5px #465E84;
+}
+input:required, textarea:required {  
+   box-shadow: none;
+   -moz-box-shadow: none;  
+   -webkit-box-shadow: none;  
+   -o-box-shadow: none;  
+} 
+#contact-form .required {  
+   font-weight:bold;  
+   color: #FFF;      
+}
+
+
+/* Make the form look nice on smaller screens */
+@media only screen and (max-width: 580px) {
+   #contact-form{
+      left: 3%;
+      margin-right: 3%;
+      width: 88%;
+      margin-left: 0;
+      padding-left: 3%;
+      padding-right: 3%;
+   }
+}
+
+
+/* Class that disbales the animation */
+
+.no-animations {
+
+  animation: none !important;
+  transition: none !important;
+
+  top: -300px;
+
+}
+
+
+/* Thanks Lisa Wagner for the initial form design :3 (had to modify some stuff but still). */
+
+/* Also thanks to Emadamerho Nefe for the background animations <3 */
