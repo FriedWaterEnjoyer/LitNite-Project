@@ -4,25 +4,26 @@ import axios from "axios";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
+import env from "dotenv";
 
 
-const da_app = express()
+const da_app = express();
 
-const port = 3000
+const port = 3000;
 
-const request_url = "https://covers.openlibrary.org/b/isbn/"
+const request_url = "https://covers.openlibrary.org/b/isbn/";
 
 const da_db = new pg.Client({
 
-  user: "postgres",
-  host: "localhost",
-  database: "Books",
-  password: "Your_postgresql_password_here", // Don't forget to replace it when forking.
-  port: 5432
+  user: process.env.USER,
+  host: process.env.HOST,
+  database: process.env.DB,
+  password: process.env.PASSWORD,
+  port: process.env.PORT,
 
-})
+});
 
-da_db.connect()
+da_db.connect();
 
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
