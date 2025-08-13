@@ -13,6 +13,8 @@ const port = 3000;
 
 const request_url = "https://covers.openlibrary.org/b/isbn/";
 
+env.config()
+
 const da_db = new pg.Client({
 
   user: process.env.USER,
